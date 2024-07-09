@@ -6,13 +6,14 @@
 /*   By: alphbarr <alphbarr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 18:08:16 by alphbarr          #+#    #+#             */
-/*   Updated: 2024/07/02 13:21:11 by alphbarr         ###   ########.fr       */
+/*   Updated: 2024/07/03 17:57:30 by alphbarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stddef.h>
+# include "get_next_line.h"
 
 void	ft_bzero(void *s, size_t n);
 int		ft_isalnum(int c);

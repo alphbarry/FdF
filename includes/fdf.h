@@ -6,16 +6,16 @@
 /*   By: alphbarr <alphbarr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:34:35 by alphbarr          #+#    #+#             */
-/*   Updated: 2024/07/02 13:23:49 by alphbarr         ###   ########.fr       */
+/*   Updated: 2024/07/03 14:26:11 by alphbarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FDF_H
 # define FDF_H
 
-# include "../mlx_linux/mlx.h"
-# include "../ft_printf/ft_printf.h"
-# include "../libft/sources/get_next_line.h"
-# include "../libft/sources/libft.h"
+# include "../libs/mlx_linux/mlx.h"
+# include "../libs/ft_printf/inc/ft_printf.h"
+# include "../libs/libft/src/get_next_line.h"
+# include "../libs/libft/src/libft.h"
 # include <fcntl.h>
 # include <math.h>
 # include <sys/stat.h>

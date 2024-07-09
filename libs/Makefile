@@ -18,32 +18,31 @@ MKFLAGS		=	--no-print-directory
 #-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/RULES/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-#
 
 all			:
-	@$(MAKE) $(MKFLAGS) library
+	@$(MAKE) $(MKFLAGS) libft
 	@$(MAKE) $(MKFLAGS) printf
 	@$(MAKE) $(MKFLAGS) mlx
 	@echo ""
 
-library		:
+libft		:
 	@$(MAKE) $(MKFLAGS) -C $(LIBFT_DIR)
 
 printf		:
 	@$(MAKE) $(MKFLAGS) -C $(PRINTF_DIR)
 
 mlx			:
-	@$(MAKE) $(MKFLAGS) -C $(MLX_DIR)
+	@$(MAKE) $(MKFLAGS) -s -C $(MLX_DIR)
 
 clean		:
 	@$(MAKE) $(MKFLAGS) clean -C $(LIBFT_DIR)
 	@$(MAKE) $(MKFLAGS) clean -C $(PRINTF_DIR)
-	@$(MAKE) $(MKFLAGS) clean -C $(MLX_DIR)
 
 fclean		:
 	@$(MAKE) $(MKFLAGS) fclean -C $(LIBFT_DIR)
 	@$(MAKE) $(MKFLAGS) fclean -C $(PRINTF_DIR)
-	@$(MAKE) $(MKFLAGS) fclean -C $(MLX_DIR)
+	@$(MAKE) $(MKFLAGS) clean -C $(MLX_DIR)
 
 re			:
 	@$(MAKE) $(MKFLAGS) fclean
 	@$(MAKE) $(MKFLAGS) all
 
-.PHONY: all clean fclean re library printf mlx
+.PHONY: all clean fclean re libft printf mlx

@@ -6,57 +6,76 @@
 #    By: alphbarr <alphbarr@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/16 12:29:05 by alphbarr          #+#    #+#              #
-#    Updated: 2024/07/02 16:18:35 by alphbarr         ###   ########.fr        #
+#    Updated: 2024/07/03 16:34:39 by alphbarr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-AR = ar rcs
-RM = rm -rf
 
-CC = gcc
-CCFLAGS = -g -Wall -Wextra -Werror -I../includes
+#----------------------------------->COLORS<-----------------------------------#
+DEF_COLOR = \033[1;39m
+WHITE = \033[1m
+BLACK = \033[1;30m
+RED = \033[1;31m
+GREEN = \033[1;32m
+YELLOW = \033[1;33m
+BLUE = \033[1;34m
+PINK = \033[1;35m
+CIAN = \033[1;36m
 
-SOURCES_DIRECTORY = ./sources/
-
+#------------------------------------>NAME<------------------------------------#
 NAME = libft.a
 
-SRC_LIST = $(wildcard $(SOURCES_DIRECTORY)*.c)
+#----------------------------------->HEADER<-----------------------------------#
+HEADER = libft.h
 
-SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SRC_LIST))
-OBJDIR = objects/
-OBJS_LIST = $(patsubst %.c, %.o, $(notdir $(SRC_LIST)))
-OBJS = $(addprefix $(OBJDIR), $(OBJS_LIST))
+#------------------------------------->SRC<----–-------------------------------#
+SOURCES_DIRECTORY = ./src/
+SRCS =	$(wildcard $(SOURCES_DIRECTORY)*.c)
 
-LIB = src/libft.h\
-	src/get_next_line.h
+#------------------------------------>OBJ<-------------------------------------#
+OBJS_DIR = ./objs/
 
-# COLORS
+OBJS = $(addprefix $(OBJS_DIR), $(subst .c,.o,$(SRCS)))
 
-GREEN = \033[0;32m
-RED = \033[0;31m
-RESET = \033[0m
+DEP = $(addsuffix .d, $(basename $(OBJS)))
 
-.PHONY: all clean fclean re
+#----------------------------------->COMANDS<----------------------------------#
+CFLAGS = -Wall -Wextra -Werror
+RM = rm -f
+MDP = mkdir -p
+AR = ar rcs
+INCLUDE = -I ./
 
-all: $(NAME)
+#------------------------------------>RULES<-----------------------------------#
+$(OBJS_DIR)%.o: %.c Makefile
+	@$(MDP) $(dir $@)
+	@printf "$(PINK)      \rCompiling: $(YELLOW)$<...$(DEF_COLOR)      \r"
+	@$(CC) -MT $@ $(CFLAGS) -MMD -MP $(INCLUDE) -c $< -o $@
 
-$(NAME): $(OBJS) $(LIB)
-	@$(AR) $@ $(OBJS)
-	@echo "Library $@ Done :)"
+all			: 
+	@echo ""
+	@$(MAKE) $(NAME)
 
-$(OBJDIR)%.o: $(SOURCES_DIRECTORY)%.c Makefile $(LIB)
-	@mkdir -p $(@D)
-	@echo "$(GREEN) Compiling... $<..."
-	@$(CC) $(CCFLAGS) -c $< -o $@
-	@echo "$(RED) $@ created!"
+$(NAME)		:	$(OBJS)
+	@$(AR) $(NAME) $(OBJS)
+	@printf "\n$(GREEN)LIBRARY: '$(subst .a,,$@)' has been created.$(DEF_COLOR)\n"
+
+#$(NAME)		:
+#	@echo "$(YELLOW)Nothing to be done for '$(subst .a,,$(NAME))'$(DEF_COLOR)"
 
 clean:
-	@echo "Remove *.o"
-	@${RM} -r $(OBJDIR)
-	@echo "Done !"
+	@$(RM) -r $(OBJS_DIR)
 
-fclean: clean
-	@echo "Remove $(NAME)"
-	@${RM} $(NAME)
-	@echo "Done !"
+fclean		:
+	@$(MAKE) clean
+	@$(RM) $(NAME)
+	@echo "$(RED)LIBRARY: '$(subst .a,,$(NAME))' has been removed.$(DEF_COLOR)"
 
-re: fclean all
+re			:
+	@$(MAKE) fclean
+	@$(MAKE) all
+	@echo "$(CIAN)LIBRARY: '$(subst .a,,$(NAME))' has been remake$(DEF_COLOR)"
+	@echo ""
+
+.PHONY: all bonus clean fclean re bonus
+
+-include $(DEP)

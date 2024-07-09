@@ -6,7 +6,7 @@
 #    By: alphbarr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 14:10:47 by alphbarr          #+#    #+#              #
-#    Updated: 2024/07/03 12:25:38 by alpha            ###   ########.fr        #
+#    Updated: 2024/07/03 16:41:06 by alphbarr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,16 +25,16 @@ CIAN		=	\033[1;96m
 NAME		=	FdF
 
 #<-------------------------------->LIBRARY<---------------------------------->#
-LIBRARY		= libs/
-LIB_A		=	libs/libft/libft.a libs/ft_printf/libftprintf.a
+LIBRARY		=	libs/
+LIB_A		=	libs/libft/libft.a libs/ft_printf/libftprintf.a \
+				libs/mlx_linux/libmlx.a
+LIB_SEARCH	=	-L./libs/libft -L./libs/ft_printf -L./libs/mlx_linux
 MLXLIB		=	libs/mlx_linux/libmlx.a -lXext -lX11 -lm -lz
-LIB_SEARCH	=	-L./libs/libft -L./libs/ft_printf -L./libs/mlx_linux/ \
-				-lft -lftprintf -lmlx -lm
 
 #<-------------------------------->HEADERS<---------------------------------->#
 HEADER		=	./includes/
-PRINTF_H	=	./libs/ft_printf/
-LIBFT_H		=	./libs/libft/sources/
+PRINTF_H	=	./libs/ft_printf/inc/
+LIBFT_H		=	./libs/libft/
 MLX_H		=	./libs/mlx_linux/
 
 #<--------------------------------->DIRS<------------------------------------>#
@@ -54,38 +54,38 @@ FILES		=	main.c \
 				utils.c
 
 #<--------------------------------->SRCS<----------------------------------->#
-SRCS		=	$(addprefix $(SRC_DIR), $(addsuffix	.c, $(FILES)))
+SRCS		=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(FILES)))
 
 #<----------------------------->OBJS && DEPS<------------------------------->#
-OBJS		=	$(addprefix $(OBJ_DIR), $(subst .c,.o, $(FILES)))
-DEPS		=	$(subst .o,.d,$(OBJS))	
+OBJS		=	$(addprefix $(OBJ_DIR), $(subst .c,.o,$(FILES)))
+DEPS		=	$(subst .o,.d,$(OBJS))
 
 #<-------------------------------->COMANDS<---------------------------------->#
 INCLUDE		=	-I$(HEADER) -I$(PRINTF_H) -I$(LIBFT_H) -I$(MLX_H)
 RM			=	rm -rf
 MKD			=	mkdir -p
 MK			=	Makefile
-CFLAGS		=	-Wall -Wextra -Werror# -fsanitize=address
+CFLAGS		=	-Wall -Wextra -Werror -O3# -fsanitize=address
 MKFLAGS		=	--no-print-directory
 
 #<--------------------------------->RULES<----------------------------------->#
-$(OBJ_DIR)%.o	:	souces/%.c $(LIB_A) $(MK)
+$(OBJ_DIR)%.o	:$(SRC_DIR)%.c $(LIB_A) $(MK)
 	@$(MKD) $(dir $@)
-	@printf "$(PINK)       \rCompiling: $(YELLOW)$(notdir $<)...$(DEF_COLOR)       \r"
+	@printf "$(PINK)    \rCompiling: $(YELLOW)$(notdir $<)...$(DEF_COLOR)       \r"
 	@$(CC) -MT $@ $(CFLAGS) -MMD -MP $(INCLUDE) -c $< -o $@
 
-	all				:
+all				:
 	@$(MAKE) $(MKFLAGS) -C $(LIBRARY)
 	@$(MAKE) $(MKFLAGS) $(NAME)
 
 
 $(NAME)			:	$(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) $(LIB_SEARCH) $(MLXLIB) -o $@
+	@$(CC) $(CFLAGS) $(OBJS) $(LIB_A) $(MLXLIB) -o $@
 	@echo "\n$(GREEN)FdF has been compiled$(DEF_COLOR)"
 
 clean			:
 	@$(MAKE) $(MKFLAGS) clean -C $(LIBRARY)
-	@$(RM) $(OBJ_DIR)
+	@$(RM) $(OBJ_DIR) $(B_OBJ_DIR)
 	@echo ""
 	@echo "$(RED)All OBJS && DEPS has been removed$(DEF_COLOR)"
 	@echo ""
@@ -93,7 +93,7 @@ clean			:
 fclean			:
 	@$(MAKE) $(MKFLAGS) clean
 	@$(MAKE) $(MKFLAGS) fclean -C $(LIBRARY)
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) $(B_NAME)
 	@echo ""
 	@echo "$(RED)Program has been removed$(DEF_COLOR)"
 
