@@ -30,3 +30,44 @@ FdF (Fil de Fer) es un visualizador gráfico que lee un archivo de texto con val
 ├── libft/
 ├── Makefile
 └── README.md
+
+⚙️ Compilación
+Asegúrate de tener la MiniLibX instalada. Luego, simplemente ejecuta:
+
+make
+
+Para limpiar archivos objeto:
+
+make clean
+
+🚀 Uso
+Una vez compilado, puedes ejecutar el programa así:
+
+./fdf maps/42.fdf
+🔺 Nota: Asegúrate de pasarle un archivo con extensión .fdf. El programa validará esto antes de intentar abrirlo.
+
+🗂️ Formato del archivo .fdf
+Cada línea representa una fila, y cada número representa una altura z. Por ejemplo:
+
+0 0 0 0
+0 1 1 0
+0 0 0 0
+Este mapa tiene 3 filas y 4 columnas.
+
+🖱️ Controles
+W, A, S, D – Mover el mapa
+
++, - – Zoom
+
+ESC – Salir
+
+🧪 Ejemplos de mapas
+Puedes encontrar ejemplos de mapas en la carpeta maps/ o generar los tuyos propios.
+
+🧑‍💻 Autor
+Este proyecto fue desarrollado como parte del programa de 42.
+
+💼 [Alpha Omar Barry]
+
+📫 [alphaomar9@gmail.com]
+
