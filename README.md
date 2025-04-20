@@ -1,73 +1,98 @@
 # FdF - Wireframe Viewer 🗺️
 
-Este proyecto es parte del plan de estudios de la escuela 42 y tiene como objetivo representar mapas en 3D mediante proyecciones isométricas o paralelas, a partir de un archivo `.fdf`.
-
 ## 🧠 Descripción
 
-FdF (Fil de Fer) es un visualizador gráfico que lee un archivo de texto con valores de altura y lo transforma en una representación 3D de un terreno en forma de wireframe, utilizando la biblioteca MiniLibX para el renderizado gráfico.
+**FdF (Fil de Fer)** es un visualizador gráfico 3D desarrollado como parte del plan de estudios de la escuela 42. Su objetivo es representar mapas en forma de wireframes (rejillas) utilizando proyecciones isométricas o paralelas, a partir de un archivo de texto `.fdf` con valores de altura.
 
-### Funcionalidades
+Este proyecto fue diseñado para afianzar conceptos como lectura de archivos, estructuras de datos, gráficos en 2D/3D, transformaciones espaciales y control de eventos, utilizando C y la biblioteca gráfica MiniLibX.
 
-- Lectura y parseo de mapas `.fdf`.
-- Visualización 3D en proyección isométrica.
-- Interacción con el usuario (zoom, movimiento, etc).
-- Control de errores y validaciones (extensión de archivo, contenido válido...).
+---
 
-## 📁 Estructura del Proyecto
+## ⚙️ Instalación
 
-```bash
-.
-├── includes/
-│   └── fdf.h
-├── srcs/
-│   ├── main.c
-│   ├── parse.c
-│   ├── draw.c
-│   ├── controls.c
-│   └── utils.c
-├── maps/
-│   └── 42.fdf
-├── libft/
-├── Makefile
-└── README.md
+### Requisitos
 
-⚙️ Compilación
-Asegúrate de tener la MiniLibX instalada. Luego, simplemente ejecuta:
+- Sistema operativo basado en UNIX (Linux, macOS).
+- Compilador C (`gcc` o `clang`).
+- Biblioteca gráfica **MiniLibX** instalada.
+- Make.
+
+### Pasos de instalación
+
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/tuusuario/fdf.git
+
+    Accede al directorio del proyecto:
+
+cd fdf
+
+Compila el proyecto:
 
 make
 
-Para limpiar archivos objeto:
+(Opcional) Limpia archivos objeto:
 
-make clean
+    make clean
 
-🚀 Uso
-Una vez compilado, puedes ejecutar el programa así:
+💻 Tecnologías Utilizadas
+
+    Lenguaje C
+
+    Biblioteca MiniLibX (renderizado gráfico)
+
+    Libft (funciones de utilidad)
+
+    Sistema de ventanas X11 (Linux) o macOS Frameworks
+
+    Control de eventos de teclado y renderizado 2D/3D
+
+🚀 Instrucciones de Uso
+
+Una vez compilado, puedes ejecutar el programa con un archivo .fdf:
 
 ./fdf maps/42.fdf
-🔺 Nota: Asegúrate de pasarle un archivo con extensión .fdf. El programa validará esto antes de intentar abrirlo.
 
+🔺 Nota: El archivo debe tener extensión .fdf. El programa validará su contenido antes de procesarlo.
 🗂️ Formato del archivo .fdf
-Cada línea representa una fila, y cada número representa una altura z. Por ejemplo:
+
+Cada archivo .fdf es una matriz de números enteros que representan las elevaciones (z) del terreno. Cada línea del archivo representa una fila del mapa.
+
+Ejemplo:
 
 0 0 0 0
 0 1 1 0
 0 0 0 0
-Este mapa tiene 3 filas y 4 columnas.
 
+Este mapa tiene 3 filas y 4 columnas, y genera una elevación central en forma de “meseta”.
 🖱️ Controles
-W, A, S, D – Mover el mapa
 
-+, - – Zoom
+    W, A, S, D – Mover el mapa
 
-ESC – Salir
+    +, - – Zoom in/out
 
-🧪 Ejemplos de mapas
-Puedes encontrar ejemplos de mapas en la carpeta maps/ o generar los tuyos propios.
+    ESC – Salir del programa
 
-🧑‍💻 Autor
-Este proyecto fue desarrollado como parte del programa de 42.
+📁 Estructura del Proyecto
 
-💼 [Alpha Omar Barry]
+.
+├── includes/
+│   └── fdf.h             # Header principal
+├── srcs/
+│   ├── main.c            # Punto de entrada
+│   ├── parse.c           # Lectura y parseo de archivos .fdf
+│   ├── draw.c            # Renderizado de líneas
+│   ├── controls.c        # Manejo de teclas y eventos
+│   └── utils.c           # Funciones auxiliares
+├── maps/                 # Mapas de ejemplo
+│   └── 42.fdf
+├── libft/                # Librería personalizada
+├── Makefile
+└── README.md
 
-📫 [alphaomar9@gmail.com]
+🧪 Ejemplos de Mapas
 
+Puedes utilizar los archivos en la carpeta maps/ o crear tus propios mapas .fdf. Asegúrate de que sigan el formato correcto para una visualización adecuada.
+👨‍💻 Autor
+
+Este proyecto fue desarrollado como parte del programa de formación de la École 42.
