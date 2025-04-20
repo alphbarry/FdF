@@ -65,6 +65,7 @@ Ejemplo:
 0 0 0 0
 
 Este mapa tiene 3 filas y 4 columnas, y genera una elevación central en forma de “meseta”.
+
 🖱️ Controles
 
     W, A, S, D – Mover el mapa
