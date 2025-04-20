@@ -76,19 +76,34 @@ Este mapa tiene 3 filas y 4 columnas, y genera una elevación central en forma d
 
 📁 Estructura del Proyecto
 
+```bash
+ 
 .
+ 
 ├── includes/
-│   └── fdf.h             # Header principal
+ 
+│   └── fdf.h
+ 
 ├── srcs/
-│   ├── main.c            # Punto de entrada
-│   ├── parse.c           # Lectura y parseo de archivos .fdf
-│   ├── draw.c            # Renderizado de líneas
-│   ├── controls.c        # Manejo de teclas y eventos
-│   └── utils.c           # Funciones auxiliares
-├── maps/                 # Mapas de ejemplo
+ 
+│   ├── main.c
+ 
+│   ├── parse.c
+ 
+│   ├── draw.c
+ 
+│   ├── controls.c
+ 
+│   └── utils.c
+ 
+├── maps/
+ 
 │   └── 42.fdf
-├── libft/                # Librería personalizada
+ 
+├── libft/
+ 
 ├── Makefile
+ 
 └── README.md
 
 🧪 Ejemplos de Mapas
