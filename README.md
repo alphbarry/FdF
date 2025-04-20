@@ -21,15 +21,15 @@ Este proyecto fue diseñado para afianzar conceptos como lectura de archivos, es
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tuusuario/fdf.git
+   git clone https://github.com/alphbarry/fdf.git
 
-    Accede al directorio del proyecto:
+2. Accede al directorio del proyecto:
+   ```bash
+   cd fdf
 
-cd fdf
-
-Compila el proyecto:
-
-make
+3. Compila el proyecto:
+   ```bash
+   make
 
 (Opcional) Limpia archivos objeto:
 
@@ -93,6 +93,7 @@ Este mapa tiene 3 filas y 4 columnas, y genera una elevación central en forma d
 🧪 Ejemplos de Mapas
 
 Puedes utilizar los archivos en la carpeta maps/ o crear tus propios mapas .fdf. Asegúrate de que sigan el formato correcto para una visualización adecuada.
-👨‍💻 Autor
 
+👨‍💻 Autor
+alphbarry
 Este proyecto fue desarrollado como parte del programa de formación de la École 42.
