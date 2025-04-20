@@ -79,31 +79,18 @@ Este mapa tiene 3 filas y 4 columnas, y genera una elevación central en forma d
       ```bash
  
       .
- 
       ├── includes/
- 
       │   └── fdf.h
- 
       ├── srcs/
- 
       │   ├── main.c
- 
       │   ├── parse.c
- 
       │   ├── draw.c
- 
       │   ├── controls.c
- 
       │   └── utils.c
- 
       ├── maps/
- 
       │   └── 42.fdf
- 
       ├── libft/
- 
       ├── Makefile
- 
       └── README.md
 
 🧪 Ejemplos de Mapas
