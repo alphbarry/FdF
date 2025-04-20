@@ -21,7 +21,7 @@ Este proyecto fue diseñado para afianzar conceptos como lectura de archivos, es
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/alphbarry/fdf.git
+   git clone https://github.com/alphbarry/FdF.git
 
 2. Accede al directorio del proyecto:
    ```bash
