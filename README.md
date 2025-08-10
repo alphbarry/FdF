@@ -17,7 +17,7 @@ This project was designed to reinforce concepts such as file reading, data struc
 - **MiniLibX** graphics library installed.
 - Make.
 
-### Pasos de instalación
+### Installation steps
 
 1. Clone the repository
    ```bash
@@ -31,7 +31,7 @@ This project was designed to reinforce concepts such as file reading, data struc
    ```bash
    make
 
-(Optional) Clean up object files:
+4. (Optional) Clean up object files:
 
     make clean
 
