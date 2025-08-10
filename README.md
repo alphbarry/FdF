@@ -1,102 +1,102 @@
 # FdF - Wireframe Viewer 🗺️
 
-## 🧠 Description
+## 🧠 Descripción
 
-**FdF (Fil de Fer)** is a 3D graphics viewer developed as part of the School 42 curriculum. Its objective is to represent maps in the form of wireframes (grids) using isometric or parallel projections, from a `.fdf` text file with height values.
+**FdF (Fil de Fer)** es un visualizador gráfico 3D desarrollado como parte del plan de estudios de la escuela 42. Su objetivo es representar mapas en forma de wireframes (rejillas) utilizando proyecciones isométricas o paralelas, a partir de un archivo de texto `.fdf` con valores de altura.
 
-This project was designed to reinforce concepts such as file reading, data structures, 2D/3D graphics, spatial transformations, and event handling, using C and the MiniLibX graphics library.
+Este proyecto fue diseñado para afianzar conceptos como lectura de archivos, estructuras de datos, gráficos en 2D/3D, transformaciones espaciales y control de eventos, utilizando C y la biblioteca gráfica MiniLibX.
 
 ---
 
-## ⚙️ Installation
+## ⚙️ Instalación
 
-### Requirements
+### Requisitos
 
-- UNIX-based operating system (Linux, macOS).
-- C compiler (`gcc` or `clang`).
-- **MiniLibX** graphics library installed.
+- Sistema operativo basado en UNIX (Linux, macOS).
+- Compilador C (`gcc` o `clang`).
+- Biblioteca gráfica **MiniLibX** instalada.
 - Make.
 
-### Installation Steps
+### Pasos de instalación
 
-1. Clone the repository:
-``bash
-git clone https://github.com/alphbarry/FdF.git
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/alphbarry/FdF.git
 
-2. Access the project directory:
-``bash
-cd fdf
+2. Accede al directorio del proyecto:
+   ```bash
+   cd fdf
 
-3. Compile the project:
-``bash
-make
+3. Compila el proyecto:
+   ```bash
+   make
 
-(Optional) Clean up object files:
+(Opcional) Limpia archivos objeto:
 
-make clean
+    make clean
 
-💻 Technologies Used
+💻 Tecnologías Utilizadas
 
-C Language
+    Lenguaje C
 
-MiniLibX Library (graphical rendering)
+    Biblioteca MiniLibX (renderizado gráfico)
 
-Libft (utility functions)
+    Libft (funciones de utilidad)
 
-X11 Window System (Linux) or macOS Frameworks
+    Sistema de ventanas X11 (Linux) o macOS Frameworks
 
-Keyboard event handling and 2D/3D rendering
+    Control de eventos de teclado y renderizado 2D/3D
 
-🚀 Instructions for Use
+🚀 Instrucciones de Uso
 
-Once compiled, you can run the program with a .fdf file:
+Una vez compilado, puedes ejecutar el programa con un archivo .fdf:
 
 ./fdf maps/42.fdf
 
-🔺 Note: The file must have a .fdf extension. The program will validate its contents before processing it.
-🗂️ .fdf File Format
+🔺 Nota: El archivo debe tener extensión .fdf. El programa validará su contenido antes de procesarlo.
+🗂️ Formato del archivo .fdf
 
-Each .fdf file is an array of integers representing the elevations (z) of the terrain. Each line in the file represents a row of the map.
+Cada archivo .fdf es una matriz de números enteros que representan las elevaciones (z) del terreno. Cada línea del archivo representa una fila del mapa.
 
-Example:
+Ejemplo:
 
 0 0 0 0
 0 1 1 0
 0 0 0 0
 
-This map has 3 rows and 4 columns, and generates a central elevation in the shape of a "plateau."
+Este mapa tiene 3 filas y 4 columnas, y genera una elevación central en forma de “meseta”.
 
-🖱️ Controls
+🖱️ Controles
 
-W, A, S, D – Move the map
+    W, A, S, D – Mover el mapa
 
-+, - – Zoom in/out
+    +, - – Zoom in/out
 
-ESC – Quit the program
+    ESC – Salir del programa
 
-📁 Project Structure
+📁 Estructura del Proyecto
 
-``bash
+      ```bash
+ 
+      .
+      ├── includes/
+      │   └── fdf.h
+      ├── srcs/
+      │   ├── main.c
+      │   ├── parse.c
+      │   ├── draw.c
+      │   ├── controls.c
+      │   └── utils.c
+      ├── maps/
+      │   └── 42.fdf
+      ├── libft/
+      ├── Makefile
+      └── README.md
 
-.
-├── includes/
-│ └── fdf.h
-├── srcs/
-│ ├── main.c
-│ ├── parse.c
-│ ├── draw.c
-│ ├── controls.c
-│ └── utils.c
-├── maps/
-│ └── 42.fdf
-├── libft/
-├── Makefile
-└── README.md
+🧪 Ejemplos de Mapas
 
-🧪 Map Examples
+Puedes utilizar los archivos en la carpeta maps/ o crear tus propios mapas .fdf. Asegúrate de que sigan el formato correcto para una visualización adecuada.
 
-You can use the files in the maps/ folder or create Create your own .fdf maps. Make sure they follow the correct format for proper viewing.
-
-👨‍💻 Author
+👨‍💻 Autor
 alphbarry
-This project was developed as part of the École 42 training program.
+Este proyecto fue desarrollado como parte del programa de formación de la École 42.
