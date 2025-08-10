@@ -32,7 +32,7 @@ This project was designed to reinforce concepts such as file reading, data struc
    make
 
 4. (Optional) Clean up object files:
-
+   ```bash
     make clean
 
 💻 Technologies Used
